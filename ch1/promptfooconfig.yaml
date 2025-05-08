@@ -1,22 +1,41 @@
 # yaml-language-server: $schema=https://promptfoo.dev/config-schema.json
 description: 'Getting started'
 prompts:
-  - 'Convert this English to {{language}}: {{input}}'
-  - 'Translate to {{language}}: {{input}}'
+  - 'Output valid JSON with numbers from {{start}} - {{end}}'
 
 providers:
-  - ollama:llama2
+  - ollama:granite3.2
 
 tests:
   - vars:
-      language: French
-      input: Hello world
+      start: 1
+      end: 9
     assert:
-      - type: contains
-        value: 'Bonjour le monde'
+      - type: contains-all
+        value:
+         - 1
+         - 2
+         - 3
+         - 4
+         - 5
+         - 6
+         - 7
+         - 8
+         - 9
+      - type: is-json
   - vars:
-      language: Spanish
-      input: Where is the library?
+      start: 97
+      end: 105
     assert:
-      - type: icontains
-        value: 'Dónde está la biblioteca'
+      - type: contains-all
+        value:
+         - 97
+         - 98
+         - 99
+         - 100
+         - 101
+         - 102
+         - 103
+         - 104
+         - 105
+      - type: is-json
