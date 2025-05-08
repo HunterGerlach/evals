@@ -10,6 +10,9 @@
 - Ollama/Ramalama
 - Download models (e.g. ollama pull llama2, ollama pull granite3.2)
 
+> [!NOTE]
+> If you have already pulled a model using Ollama (e.g. granite3.2:2b or granite3.2:8b), Promptfoo may try to use another model and will fail to start (i.e. tests will fail and no output will be visible). To fix this you must either delete your local model or update the promptconfig to match the model you have already pulled.
+
 ## Chapter 1 - Simple Evals
 
 1. Install Promptfoo: https://www.promptfoo.dev/docs/installation/
